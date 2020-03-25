@@ -10,7 +10,6 @@ class Entries extends StatefulWidget {
 class _Entries extends State<Entries> {
   final bloc = EntryBloc();
 
-
   @override
   void dispose() {
     bloc.dispose();
@@ -20,9 +19,10 @@ class _Entries extends State<Entries> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme
-          .of(context)
-          .primaryColorDark,
+      appBar: new AppBar(
+        title: new Text("Topic"),
+      ),
+      backgroundColor: Theme.of(context).primaryColorDark,
       body: StreamBuilder(
         stream: bloc.entries,
         builder: (BuildContext context, AsyncSnapshot<List<Entry>> snapshot) {
@@ -30,72 +30,71 @@ class _Entries extends State<Entries> {
             return Center(
               child: Text('Loading...'),
             );
-          }
-          else {
-           return ListView.builder(itemCount: snapshot.data.length,
-              itemBuilder: (context,size){
+          } else {
+            return ListView.builder(
+              itemCount: snapshot.data.length,
+              itemBuilder: (context, size) {
                 return new Container(
-
-                  child: new Column(
-                    children: <Widget>[
-                      new Container(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: ListTile(
+                    child: new Column(
+                  children: <Widget>[
+                    new Container(
+                      padding: EdgeInsets.only(top: 10.0),
+                      child: ListTile(
 //                          leading: CircleAvatar(
 //                            radius: 25.0,
 //                            backgroundImage: NetworkImage(
 //                                'https://www.inovex.de/blog/wp-content/uploads/2019/01/Flutter-1-1.png'),
 //                          ),
-                          title: Text(
-                            snapshot.data[size].userID.toString(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Container(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: Text(
-                                snapshot.data[size].comment,
-                              style: TextStyle(color: Colors.white, fontSize: 15.0),
-                            ),
+                        title: Text(
+                          snapshot.data[size].userID.toString(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Container(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            snapshot.data[size].comment,
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 15.0),
                           ),
                         ),
                       ),
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          new IconButton(
-                            icon: new Icon(Icons.favorite_border),
-                            color: Colors.white,
-                            padding: new EdgeInsets.only(right: 10.0, left: 80.0),
-                            onPressed: () {},
-                          ),
-                          new Text(
-                            snapshot.data[size].like.toString(),
-                            style: TextStyle(color: Colors.white, fontSize: 15.0),
-                          ),
-                          new IconButton(
-                            icon: new Icon(Icons.thumb_down),
-                            color: Colors.white,
-                            padding: new EdgeInsets.only(right: 10.0,left: 80.0),
-                            onPressed: () {},
-                          ),
-                          new Text(
-                            snapshot.data[size].unLike.toString(),
-                            style: TextStyle(color: Colors.white, fontSize: 15.0),
-                          ),
-                        ],
-                      ),
-                      new Divider(
-                        color: Colors.black45,
-                      ),
-                    ],
-                  )
-                );
-              },);
-
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new IconButton(
+                          icon: new Icon(Icons.favorite_border),
+                          color: Colors.white,
+                          padding: new EdgeInsets.only(right: 10.0, left: 80.0),
+                          onPressed: () {},
+                        ),
+                        new Text(
+                          snapshot.data[size].like.toString(),
+                          style: TextStyle(color: Colors.white, fontSize: 15.0),
+                        ),
+                        new IconButton(
+                          icon: new Icon(Icons.thumb_down),
+                          color: Colors.white,
+                          padding: new EdgeInsets.only(right: 10.0, left: 80.0),
+                          onPressed: () {},
+                        ),
+                        new Text(
+                          snapshot.data[size].unLike.toString(),
+                          style: TextStyle(color: Colors.white, fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                    new Divider(
+                      color: Colors.black45,
+                    ),
+                  ],
+                ));
+              },
+            );
           }
         },
       ),
@@ -382,9 +381,7 @@ class _Entries extends State<Entries> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.edit),
-        backgroundColor: Theme
-            .of(context)
-            .accentColor,
+        backgroundColor: Theme.of(context).accentColor,
       ),
     );
   }
