@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:ben_demistim/utils/string_const.dart';
 import 'package:flutter/material.dart';
 
 
@@ -37,7 +38,7 @@ class _SplashScreen extends State<SplashScreen>{
       });
   }
     void navigationPage() {
-        Navigator.of(context).pushReplacementNamed('/login');
+        Navigator.of(context).pushReplacementNamed(StringConstant.route_login);
 //        Navigator.push(context, new MaterialPageRoute(
 //            //builder: (BuildContext context) => new GridViewDemo(),
 //        ));

@@ -1,5 +1,6 @@
 import 'package:ben_demistim/bloc/topic_bloc.dart';
 import 'package:ben_demistim/model/topic.dart';
+import 'package:ben_demistim/utils/string_const.dart';
 import 'package:flutter/material.dart';
 
 class Topics extends StatefulWidget {
@@ -45,6 +46,7 @@ class _Topics extends State<Topics> {
                         border: Border(bottom: BorderSide()),
                       ),
                       child: ListTile(
+                        onTap: (){Navigator.of(context).pushReplacementNamed(StringConstant.route_entry);},
                         title: Text(
                           snapshot.data[item].title,
                           style: TextStyle(

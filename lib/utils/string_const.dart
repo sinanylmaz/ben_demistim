@@ -10,6 +10,7 @@ class StringConstant{
   static const String route_homePage = "/homePage";
   static const String route_home = "/home";
   static const String route_user_settings = "/user_settings";
+  static const String route_entry = "/entryPage";
 
   // Assets
   static const String asset_sticker = "assets/stickers";
