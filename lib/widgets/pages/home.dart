@@ -1,3 +1,5 @@
+import 'package:ben_demistim/model/user.dart';
+import 'package:ben_demistim/widgets/components/drawer.dart';
 import 'package:ben_demistim/widgets/pages/topicsPage.dart';
 import 'package:ben_demistim/widgets/pages/entryPage.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +31,7 @@ class _HomeState extends State<Home>{
       left: false,
       right: false,
       child: Scaffold(
+        drawer: DrawerWidget(user: User(5, "sinan", "cCc", "1232", "sinanylmaz@gmail.com", 8, 3),),
         backgroundColor: Colors.blue,
         body: _pages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(

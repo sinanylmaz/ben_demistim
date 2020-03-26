@@ -18,11 +18,11 @@ class TopicBloc implements Bloc {
   TopicBloc() {
 
 
-    _todos.add(Topic(1,'Liste İçerik 1',3,5,DateTime.now()));
-    _todos.add(Topic(1,'Liste İçerik 2',3,5,DateTime.now()));
-    _todos.add(Topic(1,'Liste İçerik 3',3,5,DateTime.now()));
-    _todos.add(Topic(1,'Liste İçerik 4',3,5,DateTime.now()));
-    _todos.add(Topic(1,'Liste İçerik 5',3,5,DateTime.now()));
+    _todos.add(Topic(1,'Liste İçerik 1',13,5,DateTime.now()));
+    _todos.add(Topic(1,'Liste İçerik 2',23,5,DateTime.now()));
+    _todos.add(Topic(1,'Liste İçerik 3',376,54,DateTime.now()));
+    _todos.add(Topic(1,'Liste İçerik 4',3548,552,DateTime.now()));
+    _todos.add(Topic(1,'Liste İçerik 5',387563,5387,DateTime.now()));
     _inTodoSink.add(_todos);
     _todoEventController.stream.listen(_mapEventToState);
   }
